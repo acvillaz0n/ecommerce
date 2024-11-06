@@ -1,8 +1,8 @@
 import { Component, computed, inject, input, InputSignal, Signal } from '@angular/core';
-import { ProductsService } from '../service/products.service';
-import { Product } from '../model/product';
+import { Product } from '../../shared/model/product';
 import { Observable } from 'rxjs';
-import { CartStore } from '../../../../core/store/cart.store';
+import { CartStore } from '../../../../../core/store/cart.store';
+import { ProductsService } from '../../shared/service/products.service';
 
 @Component({
   selector: 'app-product-detail',

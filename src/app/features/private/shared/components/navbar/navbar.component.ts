@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { CartStore } from '../../../../core/store/cart.store';
+import { CartStore } from '../../../../../core/store/cart.store';
 
 @Component({
   selector: 'app-navbar',

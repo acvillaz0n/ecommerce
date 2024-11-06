@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, input, Output, Signal } from '@angular/core';
-import { Product } from '../../../products/model/product';
+import { Product } from '../../../products/shared/model/product';
 import { CurrencyPipe } from '@angular/common';
 
 @Component({

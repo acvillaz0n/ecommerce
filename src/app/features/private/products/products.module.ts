@@ -2,16 +2,15 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { ProductsRoutingModule } from './products-routing.module';
-import { ProductsComponent } from './products.component';
-import { ProductsListComponent } from './products-list/products-list.component';
-import { ProductDetailComponent } from './product-detail/product-detail.component';
-import { ProductsService } from './service/products.service';
+import { ProductDetailComponent } from './page/product-detail/product-detail.component';
 import { SelectableListComponent } from '../../../shared/components/selectable-list/selectable-list.component';
-import { ProductCardComponent } from './products-list/components/product-card/product-card.component';
+import { ProductsService } from './shared/service/products.service';
+import { ProductCardComponent } from './page/products-list/components/product-card/product-card.component';
+import { ProductsListComponent } from './page/products-list/products-list.component';
 
 @NgModule({
   declarations: [
-    ProductsComponent,
+    ProductsListComponent,
     ProductsListComponent,
     ProductDetailComponent,
     ProductCardComponent,
