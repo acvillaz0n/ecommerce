@@ -3,7 +3,7 @@
     <div style="border-bottom: 1px solid black;" class="">
         <div class="d-flex justify-content-between">
             <p class="m-0">Subtotal:</p>
-            <p>{{totalPrice | currency}}</p>
+            <p>{{subTotal | currency}}</p>
         </div>
         <div class="d-flex justify-content-between">
             <p class="m-0">Envio:</p>
@@ -17,5 +17,8 @@
     <div class="d-flex justify-content-between">
         <p class="m-0">Total estimado:</p>
         <p>{{totalPrice | currency}}</p>
+    </div>
+    <div class="d-grid">
+        <button class="btn btn-primary" (click)="payCart()" type="button">PAGAR</button>
     </div>
 </section>

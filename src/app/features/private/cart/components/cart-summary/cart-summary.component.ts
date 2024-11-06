@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, Output, EventEmitter } from '@angular/core';
 import { CartStore } from '../../../../../core/store/cart.store';
 import { CurrencyPipe } from '@angular/common';
 
@@ -12,9 +12,10 @@ import { CurrencyPipe } from '@angular/common';
 export class CartSummaryComponent {
   private PERCENTAGE_IVA: number = 0.21;
   private cartStore = inject(CartStore);
+  @Output() confirmOrder = new EventEmitter<boolean>();
 
   get subTotal(){
-    return this.cartStore.totalPrice;
+    return this.cartStore.totalPrice();
   }
 
   get buildIva(): number{
@@ -27,5 +28,9 @@ export class CartSummaryComponent {
 
   get totalPrice(): number{
     return this.cartStore.totalPrice() + this.buildIva + this.shippingPrice;
+  }
+
+  public payCart(){
+    this.confirmOrder.emit(true)
   }
 }

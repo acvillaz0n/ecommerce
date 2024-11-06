@@ -3,10 +3,6 @@
         <app-selectable-list [list]="categories"></app-selectable-list>
     }
     
-    {{cartStore.products()| json}}
-    {{cartStore.totalItems()| json}}
-    {{cartStore.totalPrice()| json}}
-    
     <section class="grid-container">
         @for (product of (products$ | async); track $index) {
             <app-product-card (addToCart)="addToCart($event)" [product]="product"></app-product-card>
