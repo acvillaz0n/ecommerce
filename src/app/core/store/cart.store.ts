@@ -18,7 +18,9 @@ export const CartStore = signalStore(
     {providedIn:'root'},
     withState(initialState),
     withComputed(({products}) =>({
-        totalItems: computed( () => products().length),
+        totalItems: computed( () => products().reduce((prev,product) => {
+            return prev+(product.quantity || 0) 
+        },0)),
     })),
     withMethods(({products, totalPrice, ...store}) => ({
         addToCart(productToStore: Product){

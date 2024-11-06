@@ -1,10 +1,11 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, input, Output, Signal } from '@angular/core';
 import { Product } from '../../../products/model/product';
+import { CurrencyPipe } from '@angular/common';
 
 @Component({
   selector: 'app-cart-item',
   standalone: true,
-  imports: [],
+  imports: [CurrencyPipe],
   changeDetection:ChangeDetectionStrategy.OnPush,
   templateUrl: './cart-item.component.html',
   styleUrl: './cart-item.component.scss'

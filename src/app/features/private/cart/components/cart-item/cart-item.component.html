@@ -1,13 +1,20 @@
-<div class="d-flex gap-1">
+<div class="d-flex gap-2">
     <img style="width: 10rem;" [src]="product().image">
-    <div class="flex-fill">
+    <div class="flex-fill px-4 py-2">
         <div class="d-flex justify-content-between">
-            <p style="flex:1">{{product().title}}</p>
-            <p style="flex: 2;">{{product().price}}</p>
+            <p class="fw-bold m-0">{{product().title}}</p>
+            <p class="fw-bold text-secondary text-end flex-grow-1 w-100">
+                <span class="badge text-bg-dark">{{product().price | currency:'EUR'}}</span>
+            </p>
         </div>
-        <p style="flex: 2;">{{product().category}}</p>
-        <p>x{{product().quantity}}</p>
-        <a (click)="onRemoveProduct()" role="button" class="link-danger link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Eliminar del carrito</a>
+        <p class="fw-bold text-secondary">{{product().category}}</p>
+        <p>Quantity: {{product().quantity}}</p>
+        <button class="btn btn-danger w-100" (click)="onRemoveProduct()">
+            <div class="d-flex justify-content-center align-items-center gap-2 p-1">
+                <p class="m-0">Remove</p>
+                <img class="fw-bold" src="trash.svg" width="24">
+            </div>
+        </button>
     </div>
 </div>
 

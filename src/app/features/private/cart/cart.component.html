@@ -1,18 +1,20 @@
 <section class="container">
-    <div class="row">
-        <section class="col-md-6 vh-100">
+    <div class="row align-items-center">
+        <section class="col-md-6">
             <div class="d-flex align-items-baseline gap-1">
-                <h1 class="fw-bold">CARRO</h1>
-                <span class="fw-bold">{{cartStore.products().length}} productos</span>
+                <h1 class="fw-bold">SHOPPING CART</h1>
+                <span class="fw-bold text-secondary">{{cartStore.products().length}} products</span>
             </div>
-            <p>Entrega estimada: 4-7 dias</p>
-            <div class="overflow-auto" style="height:60%">
+            <p class="text-secondary">Estimated delivery: 4-7 days</p>
+            <div class="overflow-auto cart-list d-flex gap-4 flex-column">
                 @for (product of cartStore.products(); track $index) {
                     <app-cart-item (removeProduct)="removeFromCart($event)" [product]="product"></app-cart-item>
+                }@empty {
+                    <h3 class="fw-bold">There is no products in the basket</h3>
                 }
             </div>
         </section>
-        <section class="col-md-6" >
+        <section class="col-md-6 ">
             <app-cart-summary (confirmOrder)="confirmOrder()" ></app-cart-summary>
         </section>
     </div>
