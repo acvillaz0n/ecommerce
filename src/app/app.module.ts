@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { provideHttpClient, withFetch } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { provideRouter, withComponentInputBinding } from '@angular/router';
+import { CoreModule } from './core/core.module';
 
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import { provideRouter, withComponentInputBinding } from '@angular/router';
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
+    CoreModule,
     AppRoutingModule,
   ],
   providers: [

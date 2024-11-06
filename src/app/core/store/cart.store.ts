@@ -49,6 +49,9 @@ export const CartStore = signalStore(
             
             const totalPriceUpdate = totalPrice() - productToRemove.price;
             patchState(store,{products:updateProduct, totalPrice: totalPriceUpdate});
+        },
+        cleanStore(){
+            patchState(store,{products:[], totalItems:0, totalPrice:0});
         }
     })
 )
