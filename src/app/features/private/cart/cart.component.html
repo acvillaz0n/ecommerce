@@ -8,42 +8,12 @@
             <p>Entrega estimada: 4-7 dias</p>
             <div class="overflow-auto" style="height:60%">
                 @for (product of cartStore.products(); track $index) {
-                    <div class="d-flex gap-1">
-                        <img style="width: 10rem;" [src]="product.image">
-                        <div class="flex-fill">
-                            <div class="d-flex justify-content-between">
-                                <p style="flex:1">{{product.title}}</p>
-                                <p style="flex: 2;">{{product.price}}</p>
-                            </div>
-                            <p style="flex: 2;">{{product.category}}</p>
-                            <p>x{{product.quantity}}</p>
-                            <a (click)="removeFromCart(product)" role="button" class="link-danger link-offset-2 link-underline-opacity-25 link-underline-opacity-100-hover">Eliminar del carrito</a>
-                        </div>
-                    </div>
+                    <app-cart-item (removeProduct)="removeFromCart($event)" [product]="product"></app-cart-item>
                 }
             </div>
         </section>
         <section class="col-md-6" >
-            <h4>RESUMEN DE PEDIDO</h4>
-            <div style="border-bottom: 1px solid black;" class="">
-                <div class="d-flex justify-content-between">
-                    <p class="m-0">Subtotal:</p>
-                    <p>{{cartStore.totalPrice() | currency}}</p>
-                </div>
-                <div class="d-flex justify-content-between">
-                    <p class="m-0">Envio:</p>
-                    <p>{{ shippingPrice | currency}}</p>
-                </div>
-                <div class="d-flex justify-content-between">
-                    <p class="m-0">IVA:</p>
-                    <p>{{ buildIva | currency}}</p>
-                </div>
-            </div>
-            <div class="d-flex justify-content-between">
-                <p class="m-0">Total estimado:</p>
-                <p>{{totalPrice | currency}}</p>
-            </div>
-
+            <app-cart-summary></app-cart-summary>
         </section>
     </div>
 </section>
