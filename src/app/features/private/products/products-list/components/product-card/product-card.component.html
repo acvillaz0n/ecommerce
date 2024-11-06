@@ -1,0 +1,11 @@
+<div class="card p-2 round-2">
+    <img class="product-image" [src]="product.image" alt="..." />
+    <div class="card-body">
+        <h5 class="card-title">{{ product.title }}</h5>
+        <p class="card-text">{{ product.description }}</p>
+    </div>
+    <div class="card-body">
+        <button class="btn btn-primary" (click)="onAddToCart()">Add to cart</button>
+        <button class="btn btn-primary" [routerLink]="[product.id]">Go to details</button>
+    </div>
+</div>

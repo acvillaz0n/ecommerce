@@ -1,0 +1,17 @@
+@if ((product$() | async); as product) {
+    <section class="container mt-2">
+        <div class="row text-center">
+            <div class="col-sm-6">
+                <img [src]="product.image" style="max-width: 100%;">
+            </div>
+            <div class="col-sm-6">
+                <h3>{{product.title}}</h3>
+                <p>{{product.category}}</p>
+                <p>{{product.rating.rate}}</p>
+                <p>{{product.description}}</p>
+                <p>{{product.price}}</p>
+                <button class="btn btn-primary" (click)="addToCar(product)">Add to cart</button>
+            </div>
+        </div>
+    </section>
+}
