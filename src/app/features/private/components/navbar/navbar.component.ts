@@ -7,7 +7,7 @@ import { CartStore } from '../../../../core/store/cart.store';
   styleUrl: './navbar.component.scss'
 })
 export class NavbarComponent {
-  private readonly cartStore = inject(CartStore);
+  public readonly cartStore = inject(CartStore);
 
   get totalItems(): number{
     return this.cartStore.totalItems();

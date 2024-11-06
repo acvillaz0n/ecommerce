@@ -17,7 +17,7 @@ a {
 
 .container-main {
     overflow: auto;
-    height: 100vh;
+    height: calc(100vh - 4rem);
     top: 4rem;
     position: relative;
 }

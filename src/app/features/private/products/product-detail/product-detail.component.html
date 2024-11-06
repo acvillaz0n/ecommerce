@@ -1,16 +1,24 @@
 @if ((product$() | async); as product) {
-    <section class="container mt-2">
+    <section class="container h-100 d-flex align-content-center align-items-center">
         <div class="row text-center">
             <div class="col-sm-6">
-                <img [src]="product.image" style="max-width: 100%;">
+                <img [src]="product.image" style="width: 50%;">
             </div>
-            <div class="col-sm-6">
-                <h3>{{product.title}}</h3>
-                <p>{{product.category}}</p>
-                <p>{{product.rating.rate}}</p>
+            <div class="col-sm-6 text-start">
+                <h3 class="fw-bold m-0">{{product.title}}</h3>
+                <p class="text-secondary">{{product.category}}</p>
+                <span class="badge rounded-pill text-bg-info">{{product.price | currency:'EUR'}}</span>
+                <div class="d-flex align-items-center gap-1 mt-2">
+                    <img src="star-fill.svg" width="20">
+                    <p class="m-0 fw-bold">{{product.rating.rate}}</p>
+                </div>
                 <p>{{product.description}}</p>
-                <p>{{product.price}}</p>
-                <button class="btn btn-primary" (click)="addToCar(product)">Add to cart</button>
+                <button class="btn btn-dark w-100" (click)="addToCar(product)">
+                    <div class="d-flex justify-content-center align-items-center gap-2 p-1">
+                        <p class="m-0">Add to cart</p>
+                        <img class="fw-bold" src="cart.svg" width="24">
+                    </div>
+                </button>
             </div>
         </div>
     </section>
