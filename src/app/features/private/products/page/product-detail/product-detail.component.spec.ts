@@ -6,8 +6,9 @@ import { of } from 'rxjs';
 import { ProductMockBuilder } from '../../../../../shared/mocks/product-mock';
 import { CartStore } from '../../../../../core/store/cart.store';
 import { ProductsService } from '../../shared/service/products.service';
+import { CartStoreBuilder } from '../../../../../shared/mocks/cart-mock';
 
-fdescribe('ProductDetailComponent', () => {
+describe('ProductDetailComponent', () => {
   let component: ProductDetailComponent;
   let fixture: ComponentFixture<ProductDetailComponent>;
   const PRODUCT_ID = 5;
@@ -17,10 +18,9 @@ fdescribe('ProductDetailComponent', () => {
   const productMock = new ProductMockBuilder().withId(PRODUCT_ID).build();
   productServiceMock.getProduct = jasmine.createSpy('getProduct').and.returnValue(of(productMock))
 
-  const cartStoreMock = {
-    products: signal([new ProductMockBuilder()]),
-    addToCart:addToCartMock,
-  };
+  const cartStoreMock = new CartStoreBuilder()
+    .withAddToCart(addToCartMock)
+    .build();
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -38,7 +38,7 @@ fdescribe('ProductDetailComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should get the product with ID 5', () => {
+  it('should get the product with ID '+ PRODUCT_ID, () => {
     const compiled = fixture.nativeElement as HTMLElement;
     
     expect(compiled.querySelector('#product-detail-id')?.textContent).toEqual(PRODUCT_ID.toString());

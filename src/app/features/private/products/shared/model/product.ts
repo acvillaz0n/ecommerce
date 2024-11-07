@@ -6,7 +6,7 @@ export interface Product{
     description:string;
     image:string;
     rating: rating;
-    quantity?:number;
+    quantity:number;
 }
 
 interface rating{

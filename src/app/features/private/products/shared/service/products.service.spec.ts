@@ -4,7 +4,7 @@ import { ProductsService } from './products.service';
 import { ProductMockBuilder } from '../../../../../shared/mocks/product-mock';
 import { provideHttpClient } from '@angular/common/http';
 
-fdescribe('ProductsService', () => {
+describe('ProductsService', () => {
   let service: ProductsService;
   let httpMock: HttpTestingController;
   let API = 'https://fakestoreapi.com';

@@ -11,7 +11,7 @@ import {
 } from '@angular/router';
 import { ProductDetailComponent } from '../../../product-detail/product-detail.component';
 
-fdescribe('ProductCardComponent', () => {
+describe('ProductCardComponent', () => {
   let component: ProductCardComponent;
   let fixture: ComponentFixture<ProductCardComponent>;
   const productMock = new ProductMockBuilder().build();

@@ -22,9 +22,8 @@
     <div class="d-flex">
       <a role="button" class="position-relative">
         <img src="svg/cart.svg" routerLink="/cart" width="30">
-        <span *ngIf="totalItems" class="position-absolute top-0 start-0 translate-middle badge rounded-pill bg-danger">
+        <span id="navbar-total-items" *ngIf="totalItems" class="position-absolute top-0 start-0 translate-middle badge rounded-pill bg-danger">
           {{totalItems}}
-          <span class="visually-hidden">products in cart</span>
         </span>
       </a>
     </div>

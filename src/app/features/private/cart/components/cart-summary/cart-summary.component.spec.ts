@@ -4,17 +4,17 @@ import { CartSummaryComponent } from './cart-summary.component';
 import { signal } from '@angular/core';
 import { ProductMockBuilder } from '../../../../../shared/mocks/product-mock';
 import { CartStore } from '../../../../../core/store/cart.store';
+import { CartStoreBuilder } from '../../../../../shared/mocks/cart-mock';
 
-fdescribe('CartSummaryComponent', () => {
+describe('CartSummaryComponent', () => {
   let component: CartSummaryComponent;
   let fixture: ComponentFixture<CartSummaryComponent>;
-  let productMock = new ProductMockBuilder()
+  let productMock = new ProductMockBuilder().build();
 
-  const cartStoreMock = {
-    products: signal([productMock]),
-    totalItems: signal(1),
-    totalPrice: signal(200.00),
-  };
+  const cartStoreMock = new CartStoreBuilder()
+    .withTotalPrice(200.00)
+    .withProducts([productMock])
+    .build();
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({

@@ -2,7 +2,7 @@ import { ComponentFixture, inject, TestBed } from '@angular/core/testing';
 import { LoadingComponent } from './loading.component';
 import { LoadingService } from '../../services/loading.service';
 
-fdescribe('LoadingComponent', () => {
+describe('LoadingComponent', () => {
     let component: LoadingComponent;
     let fixture: ComponentFixture<LoadingComponent>;
     let loadingService: LoadingService;

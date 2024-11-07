@@ -10,14 +10,10 @@ import { CurrencyPipe } from '@angular/common';
   templateUrl: './cart-item.component.html',
 })
 export class CartItemComponent {
-  public product: InputSignal<Product> = input.required<Product>();
-  @Output() removeProduct = new EventEmitter<Product>();
+  public readonly product: InputSignal<Product> = input.required<Product>();
+  @Output() removeProduct: EventEmitter<Product> = new EventEmitter<Product>();
 
-  removeFromCart():void{
+  public removeFromCart():void{
     this.removeProduct.emit(this.product());
-  }
-
-  loger(){
-    console.log('render ITEM')
   }
 }

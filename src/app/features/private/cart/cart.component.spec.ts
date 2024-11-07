@@ -8,25 +8,24 @@ import { ProductMockBuilder } from '../../../shared/mocks/product-mock';
 import { signal } from '@angular/core';
 import { Product } from '../products/shared/model/product';
 import { of } from 'rxjs';
+import { CartStoreBuilder } from '../../../shared/mocks/cart-mock';
 
-fdescribe('CartComponent', () => {
+describe('CartComponent', () => {
   let component: CartComponent;
   let fixture: ComponentFixture<CartComponent>;
 
   const removeFromCartMock = jasmine.createSpy('removeFromCart');
-  const cleanStore = jasmine.createSpy('cleanStore');
+  const cleanStoreMock = jasmine.createSpy('cleanStore');
   const modalRefMock = jasmine.createSpyObj('MatDialog',['open']);
   modalRefMock.open = jasmine.createSpy('open').and.returnValue({
     afterClosed: () => of(0)
   });
 
-  const cartStoreMock = {
-    products: signal([new ProductMockBuilder()]),
-    totalItems: signal(1),
-    totalPrice: signal(200),
-    removeFromCart:removeFromCartMock,
-    cleanStore
-  };
+  const cartStoreMock = new CartStoreBuilder()
+    .withTotalItems(0)
+    .withRemoveFromCart(removeFromCartMock)
+    .withCleanStore(cleanStoreMock)
+    .build();
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -44,14 +43,14 @@ fdescribe('CartComponent', () => {
   });
 
   it('should add the product in the store', () => {
-    const expectedResult = '1 products'
+    const expectedResult = `${cartStoreMock.products().length} products`;
     const compiled = fixture.nativeElement as HTMLElement;
     
     expect(compiled.querySelector('#total-products')?.textContent).toEqual(expectedResult);
   })
 
   it('should render the product in the cart', () => {
-    const expectedResult = 1;
+    const expectedResult = cartStoreMock.products().length;
     const compiled = fixture.nativeElement as HTMLElement;
 
     expect(compiled.querySelectorAll('app-cart-item')?.length).toBe(expectedResult);

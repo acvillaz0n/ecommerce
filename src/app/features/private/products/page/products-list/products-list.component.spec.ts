@@ -8,8 +8,9 @@ import { CartStore } from '../../../../../core/store/cart.store';
 import { ProductsService } from '../../shared/service/products.service';
 import { SelectableListComponent } from '../../../../../shared/components/selectable-list/selectable-list.component';
 import { ProductCardComponent } from './components/product-card/product-card.component';
+import { CartStoreBuilder } from '../../../../../shared/mocks/cart-mock';
 
-fdescribe('ProductsListComponent', () => {
+describe('ProductsListComponent', () => {
   let component: ProductsListComponent;
   let fixture: ComponentFixture<ProductsListComponent>;
 
@@ -23,11 +24,10 @@ fdescribe('ProductsListComponent', () => {
   productServiceMock.getProducts = jasmine.createSpy('getProducts').and.returnValue(of(productsMock))
   productServiceMock.getCategories = jasmine.createSpy('getCategories').and.returnValue(of(['Fashion']))
 
-  const cartStoreMock = {
-    products: signal([]),
-    addToCart:addToCartMock,
-  };
-
+  const cartStoreMock = new CartStoreBuilder()
+    .withProducts([])
+    .withAddToCart(addToCartMock)
+    .build();
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({

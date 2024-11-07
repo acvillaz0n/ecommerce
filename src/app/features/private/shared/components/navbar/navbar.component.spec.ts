@@ -1,23 +1,44 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { NavbarComponent } from './navbar.component';
+import { CartStoreBuilder } from '../../../../../shared/mocks/cart-mock';
+import { ProductMockBuilder } from '../../../../../shared/mocks/product-mock';
+import { CartStore } from '../../../../../core/store/cart.store';
 
 describe('NavbarComponent', () => {
   let component: NavbarComponent;
   let fixture: ComponentFixture<NavbarComponent>;
 
+  const cartStoreMock = new CartStoreBuilder()
+    .withTotalItems(0)
+    .build();
+
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [NavbarComponent]
+      declarations: [NavbarComponent],
+      providers:[
+        {provide: CartStore, useValue: cartStoreMock}
+      ]
     })
     .compileComponents();
 
     fixture = TestBed.createComponent(NavbarComponent);
     component = fixture.componentInstance;
-    fixture.detectChanges();
   });
+  
+  it('should display the totalItems ina badge', () => {
+    cartStoreMock.totalItems.set(1);
+    fixture.detectChanges();
+    const compiled = fixture.nativeElement as HTMLElement;
 
-  it('should create', () => {
-    expect(component).toBeTruthy();
+    expect(compiled.querySelector('#navbar-total-items')?.textContent?.trim()).toBe(cartStoreMock.totalItems().toString());
+  });
+  
+  it('should NOT display the totalItems ina badge', () => {
+    cartStoreMock.totalItems.set(0);
+    fixture.detectChanges();
+    const compiled = fixture.nativeElement as HTMLElement;
+
+    expect(compiled.querySelector('#navbar-total-items')).toBe(null);
   });
 });
