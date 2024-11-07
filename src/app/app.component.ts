@@ -6,7 +6,4 @@ import { LoadingService } from './core/services/loading.service';
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
-export class AppComponent {
-  private readonly loadingSvc = inject(LoadingService);
-  public isLoading = this.loadingSvc.loading;
-}
+export class AppComponent {}

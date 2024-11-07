@@ -10,10 +10,10 @@ import { ProductsService } from '../../shared/service/products.service';
   styleUrl: './product-detail.component.scss'
 })
 export class ProductDetailComponent {
-  public id:InputSignal<number> = input.required();
+  public productId:InputSignal<number> = input.required();
   private productSvc = inject(ProductsService);
   private cartStore = inject(CartStore);
-  public product$:Signal<Observable<Product>> = computed(() => this.productSvc.getProduct(this.id()));
+  public product$:Signal<Observable<Product>> = computed(() => this.productSvc.getProduct(this.productId()));
 
   public addToCar(product: Product): void{
     this.cartStore.addToCart(product);

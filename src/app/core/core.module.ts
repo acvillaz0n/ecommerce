@@ -1,5 +1,4 @@
 import { NgModule } from '@angular/core';
-import { authorizationTokenInterceptor } from './interceptors/authorization-token.interceptor';
 import { provideHttpClient, withInterceptors } from '@angular/common/http';
 import { LoadingComponent } from './components/loading/loading.component';
 import { LoadingService } from './services/loading.service';
@@ -11,7 +10,7 @@ import { loadingInterceptor } from './interceptors/loading.interceptor';
   providers:[
     LoadingService,
     provideHttpClient(
-      withInterceptors([authorizationTokenInterceptor, loadingInterceptor])
+      withInterceptors([loadingInterceptor])
     )
   ]
 })

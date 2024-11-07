@@ -8,13 +8,16 @@ let activeRequest = 0;
 export const loadingInterceptor: HttpInterceptorFn = (req, next) => {
   const loadingSvc = inject(LoadingService);
   loadingSvc.show();
-  activeRequest++;
+  pushRequest();
   return next(req).pipe(
     finalize(() => {
-      activeRequest--;
-      if(activeRequest==0){
+      popRequest();
+      if(!activeRequest){
         loadingSvc.hide();
       }
     })
   );
 };
+
+const pushRequest = () => activeRequest++;
+const popRequest = () => activeRequest--;
