@@ -1,7 +1,7 @@
 <div role="button" class="card round-3 h-100">
     <div class="position-relative d-flex align-items-center justify-content-center">
         <button [routerLink]="[product.id]" class="position-absolute top-0 start-0 p-2 btn btn-dark m-1">
-            <img src="eye.svg" width="24">
+            <img src="svg/eye.svg" width="24">
         </button>
         <img class="product-image" [src]="product.image" alt="image product" />
     </div>
@@ -13,7 +13,7 @@
         <button class="btn btn-dark w-100" (click)="onAddToCart()">
             <div class="d-flex justify-content-center align-items-center gap-2 p-1">
                 <p class="m-0">Add to cart</p>
-                <img class="fw-bold" src="cart.svg" width="24">
+                <img class="fw-bold" src="svg/cart.svg" width="24">
             </div>
         </button>
     </div>

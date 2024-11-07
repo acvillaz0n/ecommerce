@@ -9,14 +9,14 @@
                 <p class="text-secondary">{{product.category}}</p>
                 <span class="badge rounded-pill text-bg-info">{{product.price | currency:'EUR'}}</span>
                 <div class="d-flex align-items-center gap-1 mt-2">
-                    <img src="star-fill.svg" width="20">
+                    <img src="svg/star-fill.svg" width="20">
                     <p class="m-0 fw-bold">{{product.rating.rate}}</p>
                 </div>
                 <p>{{product.description}}</p>
                 <button class="btn btn-dark w-100" (click)="addToCar(product)">
                     <div class="d-flex justify-content-center align-items-center gap-2 p-1">
                         <p class="m-0">Add to cart</p>
-                        <img class="fw-bold" src="cart.svg" width="24">
+                        <img class="fw-bold" src="svg/cart.svg" width="24">
                     </div>
                 </button>
             </div>
