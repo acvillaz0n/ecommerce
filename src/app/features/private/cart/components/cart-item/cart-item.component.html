@@ -4,7 +4,7 @@
         <div class="d-flex justify-content-between">
             <p id="card-item-title" class="fw-bold m-0">{{product().title}}</p>
             <p class="fw-bold text-secondary text-end flex-grow-1 w-100">
-                <span id="card-item-price" class="badge text-bg-dark">{{product().price | currency:'EUR'}}</span>
+                <span id="card-item-price" class="badge text-bg-dark">{{totalPrice | currency:'EUR'}}</span>
             </p>
         </div>
         <p id="card-item-category" class="fw-bold text-secondary">{{product().category}}</p>

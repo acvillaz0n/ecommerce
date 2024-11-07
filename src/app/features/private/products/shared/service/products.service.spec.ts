@@ -18,7 +18,7 @@ describe('ProductsService', () => {
   });
 
   it('should get all products', () => {
-    const expectedProducts = [new ProductMockBuilder(),new ProductMockBuilder(),new ProductMockBuilder() ];
+    const expectedProducts = [new ProductMockBuilder().build(),new ProductMockBuilder().build(),new ProductMockBuilder().build() ];
     service.getProducts().subscribe(products => {
       expect(products.length).toBe(3)
     })
@@ -43,7 +43,7 @@ describe('ProductsService', () => {
 
   it('should get an especific product', () => {
     const productId = 2;
-    const productMock = new ProductMockBuilder();
+    const productMock = new ProductMockBuilder().build();
     service.getProduct(productId).subscribe(product => {
       expect(product.title).toBe(productMock.title);
       expect(product.description).toBe(productMock.description);

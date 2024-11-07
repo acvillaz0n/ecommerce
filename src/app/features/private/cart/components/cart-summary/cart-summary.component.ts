@@ -16,6 +16,10 @@ export class CartSummaryComponent {
   get subTotal(){
     return this.cartStore.totalPrice();
   }
+  
+  get totalProducts(){
+    return this.cartStore.totalItems();
+  }
 
   get buildIva(): number{
     return this.cartStore.totalPrice() * this.PERCENTAGE_IVA;

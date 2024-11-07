@@ -13,6 +13,10 @@ export class CartItemComponent {
   public readonly product: InputSignal<Product> = input.required<Product>();
   @Output() removeProduct: EventEmitter<Product> = new EventEmitter<Product>();
 
+  get totalPrice(){
+    return this.product().price * this.product().quantity;
+  }
+
   public removeFromCart():void{
     this.removeProduct.emit(this.product());
   }

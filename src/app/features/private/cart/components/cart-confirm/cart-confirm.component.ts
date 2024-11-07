@@ -1,5 +1,5 @@
 import { Component, inject } from '@angular/core';
-import { MatDialogContent, MatDialogRef } from '@angular/material/dialog';
+import { MatDialogContent, MatDialogRef, MatDialogTitle } from '@angular/material/dialog';
 import { Subscription, timer } from 'rxjs';
 
 @Component({
@@ -7,6 +7,7 @@ import { Subscription, timer } from 'rxjs';
   standalone:true,
   imports: [
     MatDialogContent,
+    MatDialogTitle
   ],
   templateUrl: './cart-confirm.component.html',
 })

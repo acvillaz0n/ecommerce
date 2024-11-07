@@ -5,7 +5,7 @@ import { CartItemComponent } from './cart-item.component';
 describe('CartItemComponent', () => {
   let component: CartItemComponent;
   let fixture: ComponentFixture<CartItemComponent>;
-  let productMock = new ProductMockBuilder();
+  let productMock = new ProductMockBuilder().build();
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -15,7 +15,7 @@ describe('CartItemComponent', () => {
 
     fixture = TestBed.createComponent(CartItemComponent);
     component = fixture.componentInstance;
-    fixture.componentRef.setInput('product',new ProductMockBuilder());
+    fixture.componentRef.setInput('product',productMock);
     fixture.detectChanges();
   });
 
@@ -24,7 +24,7 @@ describe('CartItemComponent', () => {
     
     expect(compiled.querySelector('#card-item-title')?.textContent).toEqual(productMock.title);
     expect(compiled.querySelector('#card-item-category')?.textContent).toEqual(productMock.category);
-    expect(compiled.querySelector('#card-item-price')?.textContent).toBe(`€${productMock.price}`);
+    expect(compiled.querySelector('#card-item-price')?.textContent).toBe(`€${(productMock.price*productMock.quantity).toFixed(2)}`);
     expect(compiled.querySelector('#card-item-quantity')?.textContent).toEqual(`Quantity: ${productMock.quantity}`);
   });
   

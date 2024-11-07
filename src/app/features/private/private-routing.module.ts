@@ -17,6 +17,7 @@ const routes: Routes = [
         loadComponent: () =>
           import('./cart/cart.component').then((m) => m.CartComponent),
       },
+      {path: '**', redirectTo:'products', pathMatch:'full'}
     ],
   },
 ];

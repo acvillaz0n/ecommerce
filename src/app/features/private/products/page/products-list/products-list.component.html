@@ -3,7 +3,7 @@
         <app-selectable-list [list]="categories"></app-selectable-list>
     }
     
-    <section class="grid-container gap-2">
+    <section class="grid-container gap-3 mt-3">
         @for (product of (products$ | async); track product.id) {
             <app-product-card (addToCart)="addToCart($event)" [product]="product"></app-product-card>
         }
