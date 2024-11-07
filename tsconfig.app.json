@@ -4,7 +4,25 @@
   "extends": "./tsconfig.json",
   "compilerOptions": {
     "outDir": "./out-tsc/app",
-    "types": []
+    "baseUrl": "./",
+    "types": [],
+    "paths": {
+      "@core/*": [
+        "src/app/core/*"
+      ],
+      "@core-services/*": [
+        "src/app/core/services/*"
+      ],
+      "@feature/*": [
+        "src/app/feature/*"
+      ],
+      "@shared/*": [
+        "src/app/shared/*"
+      ],
+      "@data-builder/*": [
+        "src/app/shared/mocks/*"
+      ]
+    },
   },
   "files": [
     "src/main.ts"

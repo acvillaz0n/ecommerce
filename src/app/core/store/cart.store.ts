@@ -1,5 +1,4 @@
 import { computed } from '@angular/core';
-import { Product } from '../../features/private/products/shared/model/product';
 import {
   patchState,
   signalStore,
@@ -7,6 +6,7 @@ import {
   withMethods,
   withState,
 } from '@ngrx/signals';
+import { Product } from 'src/app/features/private/products/shared/model/product';
 
 export interface CartState {
   products: Product[];

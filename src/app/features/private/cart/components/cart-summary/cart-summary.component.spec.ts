@@ -1,10 +1,9 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CartSummaryComponent } from './cart-summary.component';
-import { signal } from '@angular/core';
-import { ProductMockBuilder } from '../../../../../shared/mocks/product-mock';
-import { CartStore } from '../../../../../core/store/cart.store';
-import { CartStoreBuilder } from '../../../../../shared/mocks/cart-mock';
+import { ProductMockBuilder } from '@shared/mocks/product-mock';
+import { CartStoreBuilder } from '@shared/mocks/cart-mock';
+import { CartStore } from '@core/store/cart.store';
 
 describe('CartSummaryComponent', () => {
   let component: CartSummaryComponent;

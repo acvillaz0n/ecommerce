@@ -1,14 +1,10 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { ProductCardComponent } from './product-card.component';
-import { ProductMockBuilder } from '../../../../../../../shared/mocks/product-mock';
 import {
-  ActivatedRoute,
   provideRouter,
-  Router,
   RouterLink,
-  RouterModule,
 } from '@angular/router';
+import { ProductMockBuilder } from '@shared/mocks/product-mock';
 import { ProductDetailComponent } from '../../../product-detail/product-detail.component';
 
 describe('ProductCardComponent', () => {

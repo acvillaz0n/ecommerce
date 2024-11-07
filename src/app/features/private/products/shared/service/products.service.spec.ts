@@ -1,8 +1,8 @@
 import { TestBed } from '@angular/core/testing';
 import { HttpTestingController, provideHttpClientTesting } from '@angular/common/http/testing';
 import { ProductsService } from './products.service';
-import { ProductMockBuilder } from '../../../../../shared/mocks/product-mock';
 import { provideHttpClient } from '@angular/common/http';
+import { ProductMockBuilder } from '@shared/mocks/product-mock';
 
 describe('ProductsService', () => {
   let service: ProductsService;

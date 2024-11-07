@@ -1,5 +1,3 @@
-import { Product } from "../../features/private/products/shared/model/product";
-
 export class ProductMockBuilder{
     id= 1;
     title= "Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops";

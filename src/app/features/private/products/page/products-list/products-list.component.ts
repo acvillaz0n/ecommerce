@@ -1,8 +1,8 @@
 import { Component, inject } from '@angular/core';
-import { CartStore } from '../../../../../core/store/cart.store';
+import { CartStore } from '@core/store/cart.store';
+import { Observable } from 'rxjs';
 import { Product } from '../../shared/model/product';
 import { ProductsService } from '../../shared/service/products.service';
-import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-products-list',

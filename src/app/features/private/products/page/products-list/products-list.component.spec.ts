@@ -1,14 +1,14 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ProductsListComponent } from './products-list.component';
-import { NO_ERRORS_SCHEMA, signal } from '@angular/core';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { of } from 'rxjs';
-import { ProductMockBuilder } from '../../../../../shared/mocks/product-mock';
-import { CartStore } from '../../../../../core/store/cart.store';
+import { CartStore } from '@core/store/cart.store';
+import { SelectableListComponent } from '@shared/components/selectable-list/selectable-list.component';
+import { CartStoreBuilder } from '@shared/mocks/cart-mock';
+import { ProductMockBuilder } from '@shared/mocks/product-mock';
 import { ProductsService } from '../../shared/service/products.service';
-import { SelectableListComponent } from '../../../../../shared/components/selectable-list/selectable-list.component';
 import { ProductCardComponent } from './components/product-card/product-card.component';
-import { CartStoreBuilder } from '../../../../../shared/mocks/cart-mock';
 
 describe('ProductsListComponent', () => {
   let component: ProductsListComponent;

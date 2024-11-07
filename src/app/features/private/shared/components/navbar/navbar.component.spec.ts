@@ -1,9 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { NavbarComponent } from './navbar.component';
-import { CartStoreBuilder } from '../../../../../shared/mocks/cart-mock';
-import { ProductMockBuilder } from '../../../../../shared/mocks/product-mock';
-import { CartStore } from '../../../../../core/store/cart.store';
+import { CartStore } from '@core/store/cart.store';
+import { CartStoreBuilder } from '@shared/mocks/cart-mock';
 
 describe('NavbarComponent', () => {
   let component: NavbarComponent;

@@ -1,7 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { ProductMockBuilder } from '@shared/mocks/product-mock';
 import { CartItemComponent } from './cart-item.component';
-import { ProductMockBuilder } from '../../../../../shared/mocks/product-mock';
 
 describe('CartItemComponent', () => {
   let component: CartItemComponent;

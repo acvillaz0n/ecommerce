@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, input, InputSignal, Output, Signal } from '@angular/core';
-import { Product } from '../../../products/shared/model/product';
 import { CurrencyPipe } from '@angular/common';
+import { Product } from '../../../products/shared/model/product';
 
 @Component({
   selector: 'app-cart-item',

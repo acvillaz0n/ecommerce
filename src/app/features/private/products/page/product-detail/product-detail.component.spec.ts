@@ -1,12 +1,11 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ProductDetailComponent } from './product-detail.component';
-import { signal } from '@angular/core';
 import { of } from 'rxjs';
-import { ProductMockBuilder } from '../../../../../shared/mocks/product-mock';
-import { CartStore } from '../../../../../core/store/cart.store';
+import { CartStore } from '@core/store/cart.store';
+import { CartStoreBuilder } from '@shared/mocks/cart-mock';
+import { ProductMockBuilder } from '@shared/mocks/product-mock';
 import { ProductsService } from '../../shared/service/products.service';
-import { CartStoreBuilder } from '../../../../../shared/mocks/cart-mock';
 
 describe('ProductDetailComponent', () => {
   let component: ProductDetailComponent;

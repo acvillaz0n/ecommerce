@@ -9,7 +9,7 @@ import { Product } from '../../../../shared/model/product';
 })
 export class ProductCardComponent {
   @Input() product!: Product;
-  @Output() addToCart:EventEmitter<Product> = new EventEmitter<Product>
+  @Output() addToCart: EventEmitter<Product> = new EventEmitter<Product>
 
   public notifyAddToCart(): void{
     this.addToCart.emit(this.product);

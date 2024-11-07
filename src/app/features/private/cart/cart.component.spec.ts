@@ -2,13 +2,12 @@ import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { CartComponent } from './cart.component';
 import { CartItemComponent } from './components/cart-item/cart-item.component';
 import { CartSummaryComponent } from './components/cart-summary/cart-summary.component';
-import { CartStore } from '../../../core/store/cart.store';
 import { MatDialog } from '@angular/material/dialog';
-import { ProductMockBuilder } from '../../../shared/mocks/product-mock';
-import { signal } from '@angular/core';
-import { Product } from '../products/shared/model/product';
 import { of } from 'rxjs';
-import { CartStoreBuilder } from '../../../shared/mocks/cart-mock';
+import { CartStore } from '@core/store/cart.store';
+import { CartStoreBuilder } from '@shared/mocks/cart-mock';
+import { ProductMockBuilder } from '@shared/mocks/product-mock';
+import { Product } from '../products/shared/model/product';
 
 describe('CartComponent', () => {
   let component: CartComponent;
@@ -57,7 +56,7 @@ describe('CartComponent', () => {
   })
  
   it('should send a action to remove the product from the cart', () => {
-    component.removeFromCart(new ProductMockBuilder() as Product)
+    component.removeFromCart(new ProductMockBuilder().build())
     expect(removeFromCartMock).toHaveBeenCalled();
   })
  

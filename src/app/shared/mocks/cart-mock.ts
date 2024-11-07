@@ -1,6 +1,6 @@
 import { signal } from "@angular/core";
 import { ProductMockBuilder } from "./product-mock";
-import { Product } from "../../features/private/products/shared/model/product";
+import { Product } from "src/app/features/private/products/shared/model/product";
 
 export class CartStoreBuilder{
     protected cartStoreMock = {

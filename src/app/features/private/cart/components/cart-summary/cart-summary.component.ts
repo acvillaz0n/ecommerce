@@ -1,6 +1,6 @@
 import { Component, inject, Output, EventEmitter } from '@angular/core';
-import { CartStore } from '../../../../../core/store/cart.store';
 import { CurrencyPipe } from '@angular/common';
+import { CartStore } from '@core/store/cart.store';
 
 @Component({
   selector: 'app-cart-summary',
