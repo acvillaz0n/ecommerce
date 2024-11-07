@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, input, Output, Signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, input, InputSignal, Output, Signal } from '@angular/core';
 import { Product } from '../../../products/shared/model/product';
 import { CurrencyPipe } from '@angular/common';
 
@@ -8,13 +8,12 @@ import { CurrencyPipe } from '@angular/common';
   imports: [CurrencyPipe],
   changeDetection:ChangeDetectionStrategy.OnPush,
   templateUrl: './cart-item.component.html',
-  styleUrl: './cart-item.component.scss'
 })
 export class CartItemComponent {
-  public product = input.required<Product>();
+  public product: InputSignal<Product> = input.required<Product>();
   @Output() removeProduct = new EventEmitter<Product>();
 
-  onRemoveProduct():void{
+  removeFromCart():void{
     this.removeProduct.emit(this.product());
   }
 

@@ -7,7 +7,6 @@ import { CurrencyPipe } from '@angular/common';
   standalone: true,
   imports: [CurrencyPipe],
   templateUrl: './cart-summary.component.html',
-  styleUrl: './cart-summary.component.scss'
 })
 export class CartSummaryComponent {
   private PERCENTAGE_IVA: number = 0.21;

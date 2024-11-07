@@ -21,10 +21,10 @@ export class CartComponent {
     this.cartStore.removeFromCart(product);
   }
 
-  confirmOrder(): void {
-    const dialogRef = this.dialog.open(CartConfirmComponent);
+  public confirmOrder(): void {
+    const cartConfirmRef = this.dialog.open(CartConfirmComponent);
 
-    dialogRef.afterClosed().subscribe(() => {
+    cartConfirmRef.afterClosed().subscribe(() => {
       this.cartStore.cleanStore();
     });
   }
