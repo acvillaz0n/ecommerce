@@ -7,7 +7,6 @@ import {MatChipsModule} from '@angular/material/chips';
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [MatChipsModule],
   templateUrl: './selectable-list.component.html',
-  styleUrl: './selectable-list.component.scss'
 })
 export class SelectableListComponent {
   @Input() list: string[] = [];

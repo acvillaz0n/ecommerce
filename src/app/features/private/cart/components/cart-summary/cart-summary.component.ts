@@ -11,7 +11,7 @@ import { CartStore } from '@core/store/cart.store';
 export class CartSummaryComponent {
   private PERCENTAGE_IVA: number = 0.21;
   private cartStore = inject(CartStore);
-  @Output() confirmOrder = new EventEmitter<boolean>();
+  @Output() confirmOrder: EventEmitter<void> = new EventEmitter<void>();
 
   get subTotal(){
     return this.cartStore.totalPrice();
@@ -30,6 +30,6 @@ export class CartSummaryComponent {
   }
 
   public payCart(){
-    this.confirmOrder.emit(true)
+    this.confirmOrder.emit()
   }
 }

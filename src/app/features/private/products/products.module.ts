@@ -5,16 +5,17 @@ import { ProductCardComponent } from './page/products-list/components/product-ca
 import { ProductsListComponent } from './page/products-list/products-list.component';
 import { ProductsRoutingModule } from './products-routing.module';
 import { ProductsService } from './shared/service/products.service';
+import { SharedModule } from '@shared/shared.module';
 
 @NgModule({
   declarations: [
-    ProductsListComponent,
     ProductsListComponent,
     ProductDetailComponent,
     ProductCardComponent,
   ],
   imports: [
     CommonModule,
+    SharedModule,
     ProductsRoutingModule,
   ],
   providers:[ProductsService]

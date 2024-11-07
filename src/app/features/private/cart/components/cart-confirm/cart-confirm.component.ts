@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { MatDialogContent, MatDialogRef } from '@angular/material/dialog';
-import { timer } from 'rxjs';
+import { Subscription, timer } from 'rxjs';
 
 @Component({
   selector: 'app-cart-confirm',
@@ -12,14 +12,14 @@ import { timer } from 'rxjs';
 })
 export class CartConfirmComponent {
   private TiME_TO_HIDE = 3000;
-  readonly dialogRef = inject(MatDialogRef<CartConfirmComponent>);
-  readonly timerClose = timer(this.TiME_TO_HIDE).subscribe(() => this.close());
+  private readonly dialogRef: MatDialogRef<CartConfirmComponent> = inject(MatDialogRef<CartConfirmComponent>);
+  private readonly timerClose: Subscription = timer(this.TiME_TO_HIDE).subscribe(() => this.close());
   
-  close(): void {
+  public close(): void {
     this.dialogRef.close();
   }
  
   ngOnDestroy(): void {
-    this.timerClose.unsubscribe();
+    this.timerClose?.unsubscribe();
   }
 }

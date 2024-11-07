@@ -14,8 +14,8 @@ import { Product } from '../products/shared/model/product';
   styleUrl: './cart.component.scss',
 })
 export class CartComponent {
+  private readonly dialog: MatDialog = inject(MatDialog);
   readonly cartStore = inject(CartStore);
-  readonly dialog = inject(MatDialog);
 
   public removeFromCart(product: Product): void {
     this.cartStore.removeFromCart(product);

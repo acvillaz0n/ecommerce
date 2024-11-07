@@ -11,7 +11,7 @@ import { ProductsService } from '../../shared/service/products.service';
 })
 export class ProductsListComponent {
   private readonly productSvc: ProductsService = inject(ProductsService);
-  public cartStore = inject(CartStore);
+  private readonly cartStore = inject(CartStore);
   public categories$: Observable<string[]> = this.productSvc.getCategories();
   public products$: Observable<Product[]> = this.productSvc.getProducts();
 

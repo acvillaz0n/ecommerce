@@ -8,7 +8,7 @@ import { ProductsService } from '../../shared/service/products.service';
   templateUrl: './product-detail.component.html',
 })
 export class ProductDetailComponent {
-  public productId:InputSignal<number> = input.required();
+  public productId: InputSignal<number> = input.required();
   public readonly productSvc: ProductsService = inject(ProductsService);
   public product$: Signal<Observable<Product>> = computed(() => this.productSvc.getProduct(this.productId()));
   private cartStore = inject(CartStore);

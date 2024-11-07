@@ -18,22 +18,24 @@ describe('ProductsService', () => {
   });
 
   it('should get all products', () => {
+    const expectedProducts = [new ProductMockBuilder(),new ProductMockBuilder(),new ProductMockBuilder() ];
     service.getProducts().subscribe(products => {
       expect(products.length).toBe(3)
     })
     const req = httpMock.expectOne(`${API}/products`);
-    req.flush([new ProductMockBuilder(),new ProductMockBuilder(),new ProductMockBuilder() ]);
+    req.flush(expectedProducts);
     expect(req.request.method).toBe('GET');
     httpMock.verify();
     expect(service).toBeTruthy();
   });
 
   it('should get all categories from product', () => {
+    const expctedCategories = ['fashion','men clothes'];
     service.getCategories().subscribe(categories => {
-      expect(categories.length).toBe(2)
+      expect(categories.length).toBe(expctedCategories.length)
     })
     const req = httpMock.expectOne(`${API}/products/categories`);
-    req.flush(['fashion','men clothes']);
+    req.flush(expctedCategories);
     expect(req.request.method).toBe('GET');
     httpMock.verify();
     expect(service).toBeTruthy();
