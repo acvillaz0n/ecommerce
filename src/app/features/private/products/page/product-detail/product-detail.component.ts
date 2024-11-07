@@ -3,17 +3,17 @@ import { Product } from '../../shared/model/product';
 import { Observable } from 'rxjs';
 import { CartStore } from '../../../../../core/store/cart.store';
 import { ProductsService } from '../../shared/service/products.service';
-
 @Component({
   selector: 'app-product-detail',
   templateUrl: './product-detail.component.html',
-  styleUrl: './product-detail.component.scss'
 })
 export class ProductDetailComponent {
   public productId:InputSignal<number> = input.required();
-  private productSvc = inject(ProductsService);
-  private cartStore = inject(CartStore);
+
+  public readonly productSvc:ProductsService = inject(ProductsService);
   public product$:Signal<Observable<Product>> = computed(() => this.productSvc.getProduct(this.productId()));
+  
+  private cartStore = inject(CartStore);
 
   public addToCar(product: Product): void{
     this.cartStore.addToCart(product);

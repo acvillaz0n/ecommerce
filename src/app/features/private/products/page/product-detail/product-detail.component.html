@@ -5,6 +5,7 @@
                 <img [src]="product.image" style="width: 50%;">
             </div>
             <div class="col-sm-6 text-start">
+                <p hidden id="product-detail-id" class="fw-bold m-0">{{product.id}}</p>
                 <h3 class="fw-bold m-0">{{product.title}}</h3>
                 <p class="text-secondary">{{product.category}}</p>
                 <span class="badge rounded-pill text-bg-info">{{product.price | currency:'EUR'}}</span>
@@ -13,7 +14,7 @@
                     <p class="m-0 fw-bold">{{product.rating.rate}}</p>
                 </div>
                 <p>{{product.description}}</p>
-                <button class="btn btn-dark w-100" (click)="addToCar(product)">
+                <button id="product-detail-add-to-cart" class="btn btn-dark w-100" (click)="addToCar(product)">
                     <div class="d-flex justify-content-center align-items-center gap-2 p-1">
                         <p class="m-0">Add to cart</p>
                         <img class="fw-bold" src="svg/cart.svg" width="24">

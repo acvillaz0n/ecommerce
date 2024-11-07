@@ -9,13 +9,9 @@ import { Product } from '../../../../shared/model/product';
 })
 export class ProductCardComponent {
   @Input() product!: Product;
-  @Output() addToCart = new EventEmitter<Product>
+  @Output() addToCart:EventEmitter<Product> = new EventEmitter<Product>
 
-  public onAddToCart(): void{
-    this.addToCart.emit(this.product);
-  }
-
-  public goToDetails(): void{
+  public notifyAddToCart(): void{
     this.addToCart.emit(this.product);
   }
 }

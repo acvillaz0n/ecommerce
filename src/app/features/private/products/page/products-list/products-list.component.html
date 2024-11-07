@@ -4,7 +4,7 @@
     }
     
     <section class="grid-container gap-2">
-        @for (product of (products$ | async); track $index) {
+        @for (product of (products$ | async); track product.id) {
             <app-product-card (addToCart)="addToCart($event)" [product]="product"></app-product-card>
         }
     </section>

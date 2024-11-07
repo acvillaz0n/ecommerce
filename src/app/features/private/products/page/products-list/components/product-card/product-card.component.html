@@ -10,7 +10,7 @@
         <p class="text-secondary fw-bold">{{ product.price | currency:'EUR'}}</p>
     </div>
     <div class="card-body align-content-end">
-        <button class="btn btn-dark w-100" (click)="onAddToCart()">
+        <button id="product-card-add-to-cart" class="btn btn-dark w-100" (click)="notifyAddToCart()">
             <div class="d-flex justify-content-center align-items-center gap-2 p-1">
                 <p class="m-0">Add to cart</p>
                 <img class="fw-bold" src="svg/cart.svg" width="24">

@@ -2,6 +2,7 @@ import { Component, inject } from '@angular/core';
 import { CartStore } from '../../../../../core/store/cart.store';
 import { Product } from '../../shared/model/product';
 import { ProductsService } from '../../shared/service/products.service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-products-list',
@@ -9,13 +10,12 @@ import { ProductsService } from '../../shared/service/products.service';
   styleUrl: './products-list.component.scss'
 })
 export class ProductsListComponent {
-  private productSvc = inject(ProductsService);
+  private readonly productSvc: ProductsService = inject(ProductsService);
   public cartStore = inject(CartStore);
-  public categories$ = this.productSvc.getCategories();
-  public products$ = this.productSvc.getProducts();
+  public categories$: Observable<string[]> = this.productSvc.getCategories();
+  public products$: Observable<Product[]> = this.productSvc.getProducts();
 
   public addToCart(product:Product):void{
-    console.log(product);
     this.cartStore.addToCart(product);
   }
 }
