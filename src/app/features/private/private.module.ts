@@ -7,6 +7,7 @@ import { authorizationTokenInterceptor } from '@core/interceptors/authorization-
 import { PrivateRoutingModule } from './private-routing.module';
 import { PrivateComponent } from './private.component';
 import { NavbarComponent } from './shared/components/navbar/navbar.component';
+import { ToastComponent } from '@shared/components/toast/toast.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { NavbarComponent } from './shared/components/navbar/navbar.component';
     CommonModule,
     RouterModule,
     PrivateRoutingModule,
-  ],
+    ToastComponent
+],
   providers:[
     provideHttpClient(
       withInterceptors([authorizationTokenInterceptor])
