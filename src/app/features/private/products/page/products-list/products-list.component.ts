@@ -12,7 +12,6 @@ import { ToastService } from '@shared/components/toast/services/toast.service';
 })
 export class ProductsListComponent {
   private readonly productSvc: ProductsService = inject(ProductsService);
-  public categories$: Observable<string[]> = this.productSvc.getCategories();
   public products$: Observable<Product[]> = this.productSvc.getProducts();
   
   private readonly cartStore = inject(CartStore);

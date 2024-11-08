@@ -8,6 +8,7 @@ import { PrivateRoutingModule } from './private-routing.module';
 import { PrivateComponent } from './private.component';
 import { NavbarComponent } from './shared/components/navbar/navbar.component';
 import { ToastComponent } from '@shared/components/toast/toast.component';
+import { SharedModule } from '@shared/shared.module';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,7 @@ import { ToastComponent } from '@shared/components/toast/toast.component';
     CommonModule,
     RouterModule,
     PrivateRoutingModule,
-    ToastComponent
+    SharedModule
 ],
   providers:[
     provideHttpClient(

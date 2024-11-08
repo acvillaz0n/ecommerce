@@ -1,16 +1,8 @@
 import {
   ChangeDetectionStrategy,
   Component,
-  computed,
   effect,
-  EventEmitter,
   inject,
-  input,
-  Input,
-  InputSignal,
-  Output,
-  signal,
-  WritableSignal,
 } from '@angular/core';
 import { interval, Subscription, tap, timer } from 'rxjs';
 import { ToastService } from './services/toast.service';
@@ -21,12 +13,11 @@ import { ToastService } from './services/toast.service';
   changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [],
   templateUrl: './toast.component.html',
-  styleUrl: './toast.component.scss',
 })
 export class ToastComponent {
+  public timerSubscription: Subscription | null = null;
   private readonly toastSvc = inject(ToastService);
-  private TiME_TO_HIDE = 2000;
-  private timerSubscription: Subscription | null = null;
+  private readonly TiME_TO_HIDE = 2000;
 
   constructor() {
     effect(() => {

@@ -6,6 +6,7 @@ import { CartStore } from '@core/store/cart.store';
 import { CartStoreBuilder } from '@shared/mocks/cart-mock';
 import { ProductMockBuilder } from '@shared/mocks/product-mock';
 import { ProductsService } from '../../shared/service/products.service';
+import { ToastService } from '@shared/components/toast/services/toast.service';
 
 describe('ProductDetailComponent', () => {
   let component: ProductDetailComponent;
@@ -14,6 +15,7 @@ describe('ProductDetailComponent', () => {
 
   const addToCartMock = jasmine.createSpy('addToCart');
   const productServiceMock = jasmine.createSpyObj('ProductsService',['getProduct']);
+  const toastServiceMock = jasmine.createSpyObj('ToastService',['buildToast']);
   const productMock = new ProductMockBuilder().withId(PRODUCT_ID).build();
   productServiceMock.getProduct = jasmine.createSpy('getProduct').and.returnValue(of(productMock))
 
@@ -26,7 +28,8 @@ describe('ProductDetailComponent', () => {
       declarations: [ProductDetailComponent],
       providers:[
         {provide: CartStore, useValue: cartStoreMock},
-        {provide: ProductsService, useValue:productServiceMock}
+        {provide: ProductsService, useValue:productServiceMock},
+        {provide: ToastService, useValue:toastServiceMock}
       ]
     })
     .compileComponents();
@@ -48,5 +51,6 @@ describe('ProductDetailComponent', () => {
     compiled.querySelector('#product-detail-add-to-cart')?.dispatchEvent(new Event('click'))
 
     expect(addToCartMock).toHaveBeenCalled();
+    expect(toastServiceMock.buildToast).toHaveBeenCalled();
   });
 });
