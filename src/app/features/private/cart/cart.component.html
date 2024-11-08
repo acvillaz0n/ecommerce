@@ -1,21 +1,21 @@
-<section class="container">
+<section class="container mt-2 px-4 py-sm-4">
+    <div class="d-flex align-items-baseline gap-1">
+        <h1 class="fw-bold fs-1">SHOPPING CART</h1>
+        <span id="total-products" class="fw-bold text-secondary">{{cartStore.products().length}} products</span>
+    </div>
     <div class="row align-items-center">
-        <section class="col-md-6">
-            <div class="d-flex align-items-baseline gap-1">
-                <h1 class="fw-bold">SHOPPING CART</h1>
-                <span id="total-products" class="fw-bold text-secondary">{{cartStore.products().length}} products</span>
-            </div>
+        <section class="col-md-6 order-0 mb-4">
+            <app-cart-summary (confirmOrder)="confirmOrder()" ></app-cart-summary>
+        </section>
+        <section class="col-md-6 order-1 mb-4 ">
             <p class="text-secondary">Estimated delivery: 4-7 days</p>
             <div class="overflow-auto cart-list d-flex gap-4 flex-column">
-                @for (product of cartStore.products(); track $index) {
+                @for (product of cartStore.products(); track product.id) {
                     <app-cart-item (removeProduct)="removeFromCart($event)" [product]="product"></app-cart-item>
                 }@empty {
-                    <h3 class="fw-bold">There is no products in the basket</h3>
+                    <h3 class="fw-bold fs-3">There is no products in the basket</h3>
                 }
             </div>
-        </section>
-        <section class="col-md-6 ">
-            <app-cart-summary (confirmOrder)="confirmOrder()" ></app-cart-summary>
         </section>
     </div>
 </section>

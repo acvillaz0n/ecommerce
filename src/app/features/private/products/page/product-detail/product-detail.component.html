@@ -1,10 +1,10 @@
 @if ((product$() | async); as product) {
-    <section class="container h-100 d-flex align-content-center align-items-center">
-        <div class="row text-center">
-            <div class="col-sm-6">
+    <section class="container h-100 align-content-center align-items-center">
+        <div class="row text-center py-3">
+            <div class="col-sm-6 mb-4 mb-xs-0">
                 <img [src]="product.image" class="w-50">
             </div>
-            <div class="col-sm-6 text-start">
+            <div class="col-sm-6 p-4 p-sm-0 text-start">
                 <p hidden id="product-detail-id" class="fw-bold m-0">{{product.id}}</p>
                 <h3 class="fw-bold m-0">{{product.title}}</h3>
                 <p class="text-secondary">{{product.category}}</p>
