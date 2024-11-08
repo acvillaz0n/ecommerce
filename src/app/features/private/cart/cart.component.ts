@@ -4,7 +4,7 @@ import { CartConfirmComponent } from './components/cart-confirm/cart-confirm.com
 import { CartItemComponent } from './components/cart-item/cart-item.component';
 import { CartSummaryComponent } from './components/cart-summary/cart-summary.component';
 import { CartStore } from '@core/store/cart.store';
-import { Product } from '../products/shared/model/product';
+import { Product } from '../product/shared/models/product';
 
 @Component({
   selector: 'app-cart',
@@ -15,7 +15,7 @@ import { Product } from '../products/shared/model/product';
 })
 export class CartComponent {
   private readonly dialog: MatDialog = inject(MatDialog);
-  readonly cartStore = inject(CartStore);
+  public readonly cartStore = inject(CartStore);
 
   public removeFromCart(product: Product): void {
     this.cartStore.removeFromCart(product);

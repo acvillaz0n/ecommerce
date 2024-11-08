@@ -1,12 +1,12 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { Product } from '../model/product';
+import { Product } from '../models/product';
 
 @Injectable()
 export class ProductsService {
-  private API = "https://fakestoreapi.com"
-  private http = inject(HttpClient);
+  private readonly API = "https://fakestoreapi.com"
+  private readonly http = inject(HttpClient);
 
   public getCategories():Observable<string[]>{
     return this.http.get<string[]>(`${this.API}/products/categories`);

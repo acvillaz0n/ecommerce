@@ -9,8 +9,8 @@ import { CartStore } from '@core/store/cart.store';
   templateUrl: './cart-summary.component.html',
 })
 export class CartSummaryComponent {
-  private PERCENTAGE_IVA: number = 0.21;
-  private cartStore = inject(CartStore);
+  private readonly PERCENTAGE_IVA: number = 0.21;
+  private readonly cartStore = inject(CartStore);
   @Output() confirmOrder: EventEmitter<void> = new EventEmitter<void>();
 
   get subTotal(){

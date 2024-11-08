@@ -5,8 +5,8 @@ import { of } from 'rxjs';
 import { CartStore } from '@core/store/cart.store';
 import { CartStoreBuilder } from '@shared/mocks/cart-mock';
 import { ProductMockBuilder } from '@shared/mocks/product-mock';
-import { ProductsService } from '../../shared/service/products.service';
 import { ToastService } from '@shared/components/toast/services/toast.service';
+import { ProductsService } from '../../shared/services/products.service';
 
 describe('ProductDetailComponent', () => {
   let component: ProductDetailComponent;

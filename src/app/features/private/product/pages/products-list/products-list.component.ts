@@ -1,9 +1,9 @@
 import { Component, inject } from '@angular/core';
 import { CartStore } from '@core/store/cart.store';
 import { Observable } from 'rxjs';
-import { Product } from '../../shared/model/product';
-import { ProductsService } from '../../shared/service/products.service';
 import { ToastService } from '@shared/components/toast/services/toast.service';
+import { Product } from '../../shared/models/product';
+import { ProductsService } from '../../shared/services/products.service';
 
 @Component({
   selector: 'app-products-list',

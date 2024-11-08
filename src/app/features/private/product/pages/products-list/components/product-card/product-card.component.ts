@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
-import { Product } from '../../../../shared/model/product';
+import { Product } from '../../../../shared/models/product';
 
 @Component({
   selector: 'app-product-card',

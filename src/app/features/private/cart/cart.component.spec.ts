@@ -7,7 +7,6 @@ import { of } from 'rxjs';
 import { CartStore } from '@core/store/cart.store';
 import { CartStoreBuilder } from '@shared/mocks/cart-mock';
 import { ProductMockBuilder } from '@shared/mocks/product-mock';
-import { Product } from '../products/shared/model/product';
 
 describe('CartComponent', () => {
   let component: CartComponent;

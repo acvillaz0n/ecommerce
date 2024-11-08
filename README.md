@@ -50,6 +50,10 @@ Ejecutamos una aplicación
   npm run start
 ```
 
+## Demo
+
+La aplicación se ha alojado en Vercel para facilitar su uso en entornos de práctica y como respaldo en caso de que surjan dificultades al ejecutarla localmente.
+[Sitio](https://ecommerce-lime-nine-83.vercel.app/products)
 
 ## Requisitos de la prueba
 
@@ -93,11 +97,6 @@ El módulo Product ofrece funcionalidades para `ver la lista de productos` y `lo
 - Pruebas unitarias
 - Nuevo control de flujo de Angular (@if, @for)
 - Nuevas caracteristicas de Angular v17,v18
-
-## Demo
-
-La aplicación se ha alojado en Vercel para facilitar su uso en entornos de práctica y como respaldo en caso de que surjan dificultades al ejecutarla localmente.
-[Sitio](https://ecommerce-lime-nine-83.vercel.app/products)
 
 
 ## Particularidades de implementación y desarrollo

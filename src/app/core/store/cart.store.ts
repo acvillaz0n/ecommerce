@@ -6,7 +6,7 @@ import {
   withMethods,
   withState,
 } from '@ngrx/signals';
-import { Product } from 'src/app/features/private/products/shared/model/product';
+import { Product } from 'src/app/features/private/product/shared/models/product';
 
 export interface CartState {
   products: Product[];

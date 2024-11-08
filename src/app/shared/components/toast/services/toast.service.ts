@@ -4,7 +4,7 @@ import { Injectable, signal, WritableSignal } from '@angular/core';
   providedIn:'root'
 })
 export class ToastService {
-  public toastList: WritableSignal<String[]> = signal([]);
+  public readonly toastList: WritableSignal<String[]> = signal([]);
 
   public buildToast(message: string): void{
     this.toastList.update((toastList) => [...toastList,message])

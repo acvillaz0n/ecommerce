@@ -7,7 +7,7 @@
         <section class="col-md-6 order-0 mb-4">
             <app-cart-summary (confirmOrder)="confirmOrder()" ></app-cart-summary>
         </section>
-        <section class="col-md-6 order-1 mb-4 ">
+        <section class="col-md-6 order-1">
             <p class="text-secondary">Estimated delivery: 4-7 days</p>
             <div class="overflow-auto cart-list d-flex gap-4 flex-column">
                 @for (product of cartStore.products(); track product.id) {

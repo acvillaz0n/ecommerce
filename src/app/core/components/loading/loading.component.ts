@@ -16,5 +16,5 @@ import { LoadingService } from '@core/services/loading.service';
   styleUrl: './loading.component.scss'
 })
 export class LoadingComponent {
-  readonly loadingSvc = inject(LoadingService);
+  public readonly loadingSvc = inject(LoadingService);
 }
