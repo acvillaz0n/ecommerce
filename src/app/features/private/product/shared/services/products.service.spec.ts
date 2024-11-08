@@ -3,11 +3,12 @@ import { HttpTestingController, provideHttpClientTesting } from '@angular/common
 import { ProductsService } from './products.service';
 import { provideHttpClient } from '@angular/common/http';
 import { ProductMockBuilder } from '@shared/mocks/product-mock';
+import { environment } from 'src/environments/environment.development';
 
 describe('ProductsService', () => {
   let service: ProductsService;
   let httpMock: HttpTestingController;
-  let API = 'https://fakestoreapi.com';
+  let API = environment.API;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
