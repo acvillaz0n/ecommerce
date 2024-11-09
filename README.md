@@ -52,7 +52,7 @@ Ejecutamos una aplicación
 
 ## Demo
 
-La aplicación se ha alojado en Vercel para facilitar su uso en entornos de práctica y como respaldo en caso de que surjan dificultades al ejecutarla localmente.
+La aplicación se ha alojado en Vercel como respaldo en caso de que surjan dificultades al ejecutarla localmente.
 [Sitio](https://ecommerce-lime-nine-83.vercel.app/products)
 
 ## Requisitos de la prueba
@@ -74,7 +74,7 @@ La aplicación `MadridStore` cuenta con un módulo privado llamado `PrivateModul
 
 Dentro de `PrivateModule`, se encuentran dos submódulos principales: `Cart` y `Product`.
 
-El componente `Cart` es responsable de gestionar el proceso de pago. Este componente se ha definido como independiente **(Standalone(5))** y, para cumplir su función, se apoya en los componentes `CartItem` y `CartSummary`. Ambos están configurados para utilizar la estrategia de **detección de cambios OnPush(4)** y también son componentes independientes.
+El componente `Cart` es responsable de gestionar el proceso de pago. Este componente se ha definido como independiente **(Standalone(5))** y, para cumplir su función, se apoya en los componentes `CartItem`, `CartSummary` y `CartConfirm`. El primero fue configurado con  **detección de cambios OnPush(4)**, los dos componentes restantes quedaron con la default. Por ultimo, estos componentes son independientes tambien (Stadalone).
 
 El módulo Product ofrece funcionalidades para `ver la lista de productos` y `los detalles de un producto específico`. Ambos componentes se cargan de manera anticipada (Eager Loading). Para mostrar los productos, se consumio la API gratuita **[fakestoreapi](https://fakestoreapi.com)(6)**.
 
