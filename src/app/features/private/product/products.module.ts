@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { SharedModule } from '@shared/shared.module';
 import { ProductDetailComponent } from './pages/product-detail/product-detail.component';
 import { ProductCardComponent } from './pages/products-list/components/product-card/product-card.component';
 import { ProductsListComponent } from './pages/products-list/products-list.component';
@@ -15,7 +14,6 @@ import { ProductsService } from './shared/services/products.service';
   ],
   imports: [
     CommonModule,
-    SharedModule,
     ProductsRoutingModule,
   ],
   providers:[ProductsService]

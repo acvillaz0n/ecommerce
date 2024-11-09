@@ -53,7 +53,7 @@ export const CartStore = signalStore(
       });
     },
     removeFromCart(productToRemove: Product) {
-      let updateProduct = products();
+      let updateProduct = [...products()];
       const product = products().find((prod) => prod.id === productToRemove.id);
 
       if (product && product?.quantity && product.quantity > 1) {
