@@ -3,7 +3,7 @@ import { HttpTestingController, provideHttpClientTesting } from '@angular/common
 import { ProductsService } from './products.service';
 import { provideHttpClient } from '@angular/common/http';
 import { ProductMockBuilder } from '@shared/mocks/product-mock';
-import { environment } from 'src/environments/environment.development';
+import { environment } from 'src/environments/environment';
 
 describe('ProductsService', () => {
   let service: ProductsService;
