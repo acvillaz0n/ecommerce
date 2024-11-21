@@ -24,55 +24,51 @@ export const CartStore = signalStore(
   { providedIn: 'root' },
   withState<CartState>(initialState),
   withComputed(({ products }) => ({
-    totalItems: computed(() =>
-      products().reduce((prev, product) => {
-        return prev + (product.quantity || 0);
-      }, 0)
-    ),
+    totalItems: computed(() => calculateProductCount(products())),
+    totalPrice: computed(() => calculateTotalAmount(products())),
   })),
-  withMethods(({ products, totalPrice, ...store }) => ({
-    addToCart(productToStore: Product) {
-      const newProduct = structuredClone(productToStore);
-      newProduct.quantity = 1;
+  withMethods(({ products, ...store }) => ({
+    addToCart(product: Product) {
+      const isProductInCart = products().find((item:Product) => item.id === product.id);
 
-      const product = products().find((prod) => prod.id === newProduct.id);
-      let updateProduct = [...products(), newProduct];
-
-      if (product) {
-        newProduct.quantity += product.quantity || 0;
-        const ignoreProduct = products().filter(
-          (prod) => prod.id !== newProduct.id
-        );
-        updateProduct = [...ignoreProduct, newProduct];
+      if (isProductInCart) {
+        isProductInCart.quantity++;
+        isProductInCart.subTotal = isProductInCart.quantity * isProductInCart.price;
+        patchState(store, {
+          products: [...products()],
+        });
+      }else{
+        patchState(store, {
+          products: [...products(), product ]
+        })
       }
-
-      const totalPriceUpdate = totalPrice() + newProduct.price;
-      patchState(store, {
-        products: updateProduct,
-        totalPrice: totalPriceUpdate,
-      });
     },
-    removeFromCart(productToRemove: Product) {
-      let updateProduct = [...products()];
-      const product = products().find((prod) => prod.id === productToRemove.id);
+    removeFromCart(product: Product) {
+      const isMoreThanOneProduct = products().find((item:Product) => item.id === product.id);
 
-      if (product && product?.quantity && product.quantity > 1) {
-        product.quantity = product.quantity - 1;
+      if (isMoreThanOneProduct && isMoreThanOneProduct.quantity > 1) {
+        isMoreThanOneProduct.quantity--;
+        isMoreThanOneProduct.subTotal = isMoreThanOneProduct.quantity * isMoreThanOneProduct.price;
+        patchState(store, {
+          products: [...products()],
+        });
       } else {
-        updateProduct = products().filter(
-          (prod) => prod.id !== productToRemove.id
-        );
+        const productsWithoutProduct = products().filter((item:Product) => item.id !== product.id)
+        patchState(store, {
+          products: [...productsWithoutProduct],
+        });
       }
-
-      const totalPriceUpdate = totalPrice() - productToRemove.price;
-      patchState(store, {
-        products: updateProduct,
-        totalPrice: totalPriceUpdate,
-      });
     },
     cleanStore() {
-      patchState(store, { products: [], totalItems: 0, totalPrice: 0 });
+      patchState(store, initialState);
     },
   }))
 );
+
+function calculateTotalAmount(products: Product[]){
+  return products.reduce((acc, product) => acc+product.price*product.quantity,0)
+}
+function calculateProductCount(products: Product[]){
+  return products.reduce((acc, product) => acc+product.quantity, 0)
+}
 

@@ -1,16 +1,17 @@
 /* HTML: <div class="loader"></div> */
 
 .backdrop{
-    position: absolute;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    right: 0;
-    background-color: black;
-    opacity: 0.8;
-    z-index: 10;
-    justify-items: center;
-    align-content: center;
+  position: absolute;
+  display: flex;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background-color: black;
+  opacity: 0.8;
+  z-index: 10;
+  justify-content: center;
+  align-items: center;
 }
 .loader {
     width: 100px;
